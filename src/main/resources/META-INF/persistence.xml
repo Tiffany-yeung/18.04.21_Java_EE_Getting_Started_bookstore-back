@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <persistence-unit name="bookStorePU" transaction-type="JTA">
+        <properties>
+        		<!--  Tells JPA to drop and create the database each time you re-deploy the application -->
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <!--  Gets the script from DDL, able to generate DDL script of the database -->
+            <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+            <!--  DDL for creating tables -->
+            <property name="javax.persistence.schema-generation.scripts.create-target" value="bookStoreCreate.ddl"/>
+            <!--  DDL for dropping tables -->
+            <property name="javax.persistence.schema-generation.scripts.drop-target" value="bookStoreDrop.ddl"/>
+        </properties>
+    </persistence-unit>
+</persistence>
